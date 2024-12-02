@@ -189,3 +189,18 @@ while True:
         timeInactive = 0  # Reset inactivity timer after user message
     else:
         time.sleep(1)
+
+
+
+
+# import time
+# import pyautogui  # For sending hotkeys to switch PNGs in Veadotube
+
+# def trigger_png_state(state):
+#     if state == "talking":
+#         pyautogui.hotkey("ctrl", "1")  # Set hotkey for talking state in Veadotube
+#     elif state == "heart":
+#         pyautogui.hotkey("ctrl", "2")  # Set hotkey for heart state
+#     else:
+#         pyautogui.hotkey("ctrl", "3")  # Set hotkey for idle state
+
