@@ -6,7 +6,7 @@ import time
 from queue import Queue
 import subprocess
 
-VIRTUAL_CABLE_DRIVER = "CABLE Input"
+VIRTUAL_CABLE_DRIVER = "Headphones"
 tts_queue = Queue()
 
 OUTPUT_FILE = "output.mp3"
