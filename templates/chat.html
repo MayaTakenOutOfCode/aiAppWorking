@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxie Bot Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        #chatDisplay {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 4px;
+        }
+        #inputField {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #sendButton {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #sendButton:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Foxie Bot Chat</h1>
+        <div id="chatDisplay"></div>
+        <input type="text" id="inputField" placeholder="Type your message here...">
+        <button id="sendButton">Send</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        document.getElementById('sendButton').onclick = () => {
+            const message = document.getElementById('inputField').value;
+            socket.emit('send_message', { message: message });
+            document.getElementById('inputField').value = '';
+        };
+
+        socket.on('receive_message', (data) => {
+            const chatDisplay = document.getElementById('chatDisplay');
+            chatDisplay.innerHTML += `<p><strong>${data.user}:</strong> ${data.message}</p>`;
+        });
+    </script>
+</body>
+</html> 
