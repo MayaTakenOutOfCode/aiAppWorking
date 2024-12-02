@@ -6,9 +6,8 @@ import pyaudio
 from pydub import AudioSegment
 from queue import Queue
 
-VIRTUAL_CABLE_DRIVER = "Headphones"
+VIRTUAL_CABLE_DRIVER = "CABLE Input"
 tts_queue = Queue()
-
 OUTPUT_FILE = "output.mp3"
 OUTPUT_WAV_FILE = "output.wav"
 
