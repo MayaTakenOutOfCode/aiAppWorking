@@ -64,7 +64,7 @@ def load_memory():
     except (FileNotFoundError, json.JSONDecodeError):
         logging.warning("No memory file found or file is empty. Initializing fresh memory.")
         long_term_memory = {
-            "roles": {"mom": ["extramayaboop"]},
+            "roles": {"mom": ["IneiDemonGirl"]},
             "personality": [],
             "remembered_users": [],
             "blocked_words": [] 
